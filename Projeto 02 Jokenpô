@@ -1,0 +1,95 @@
+console.clear();
+const prompt = require('prompt-sync')();
+
+console.log("JOKENPÔ");
+prompt("Aperte Enter para Iniciar"); // Start
+console.clear();
+
+console.log("Digite o nome do jogador 1:"); // Nome Jogador
+let nome = prompt().toUpperCase(); 
+console.clear();
+
+let rodadas = 1; // Contador de Rodadas
+console.log(`Digite quantas rodadas quer jogar ${nome}?`);
+let qntRodadas = +prompt(); // O usuário escolhe a quantidade de rodadas
+console.clear();
+
+// // console.log(
+// //   'ATENÇÃO PARA AS REGRAS DO JOGO:',\n,'Pedra ganha da tesoura, mas perde para o papel',\n,
+// //   'Tesoura ganha do papel, mas perde para a pedra',\n,  'Papel ganha da pedra, mas perde para a tesoura',|n,
+// // );
+
+
+let jogadas = ["pedra", "papel", "tesoura"]; //Arrays
+let vitoriasJog1 = 0;     // Contador Vitórias Jogador
+let vitoriasJog2 = 0;     // Contador Vitórias PC
+let empates = 0;          // Contador Empates
+let cont; ''
+
+while (rodadas <= qntRodadas) {   // Repetidor  de rodadas
+// console.clear();
+   console.log(`Sua vez de jogar ${nome}`);
+   console.log(`Rodada: ${rodadas}`);
+   console.log('Digite sua jogada:');
+   console.log('OPÇÕES: Pedra | Papel | Tesoura');
+   escolhaJog1 = prompt().toLowerCase();
+
+    let escolhaJog2 = Math.trunc(Math.random()*3);
+
+    if (                                                        // Condição onde o Jogador Ganha
+      (escolhaJog1 === jogadas[0] && escolhaJog2 === 2) ||
+      (escolhaJog1 === jogadas[1] && escolhaJog2 === 0) ||
+      (escolhaJog1 === jogadas[2] && escolhaJog2 === 1)
+    ) {
+        // console.clear();
+        console.log(`ESCOLHA do(a) ${nome}: ${escolhaJog1}`);
+        console.log(`ESCOLHA do COMPUTADOR: ${escolhaJog2}`);
+        console.log("VOCÊ GANHOU ESSA RODADA!");
+        vitoriasJog1++;
+        console.log(
+            `PLACAR RODADA ${rodadas}: ${nome} ${vitoriasJog1} vs Computador ${vitoriasJog2}`
+        );
+        console.log();
+        // console.clear();
+    } else if (                                             // // Condição onde há empate
+        (escolhaJog1 === jogadas[0] && escolhaJog2 === 0) ||
+        (escolhaJog1 === jogadas[1] && escolhaJog2 === 1) ||
+        (escolhaJog1 === jogadas[2] && escolhaJog2 === 2)
+    ) {
+        // console.clear();
+        console.log(`ESCOLHA do(a) ${nome}: ${escolhaJog1}`);
+        console.log(`ESCOLHA do COMPUTADOR: ${escolhaJog2}`);
+        console.log('RODADA EMPATADA!')
+         empates++
+        console.log(
+            `PLACAR RODADA ${rodadas}: ${nome} ${vitoriasJog1} vs Computador ${vitoriasJog2}`
+        );
+        console.log();
+        // console.clear();
+    } else {                                                                // // Condição onde o Jogador Perdea
+            // console.clear();
+        console.log(`ESCOLHA do(a) ${nome}: ${escolhaJog1}`);
+        console.log(`ESCOLHA do COMPUTADOR: ${escolhaJog2}`);
+        console.log('VOCÊ PERDEU ESSA RODADA!')  
+        vitoriasJog2++;
+        console.log(
+            `PLACAR RODADA ${rodadas}: ${nome} ${vitoriasJog1} vs Computador ${vitoriasJog2}`
+        );  
+        console.log();
+            // console.clear();
+    } 
+
+  rodadas++
+}
+
+console.log(
+    `PLACAR FINAL: ${nome} ${vitoriasJog1} vs COMPUTADOR ${vitoriasJog2}`         
+);
+
+if (vitoriasJog1 > vitoriasJog2) {                               // Condição Final do Jogo
+  console.log(`PARABÉNS ${nome}! VOCÊ VENCEU O JOGO!`)
+} else if (vitoriasJog1 < vitoriasJog2){
+  console.log(`INFELIMENTE VOCÊ PERDEU O JOGO ${nome}!`);
+} else if((vitoriasJog1 = vitoriasJog2)) {
+  console.log(`VOCÊ EMPATOU O JOGO ${nome}!`);
+}
