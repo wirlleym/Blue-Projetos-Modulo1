@@ -1,0 +1,626 @@
+console.clear();
+const prompt = require('prompt-sync')();
+
+let ansiedade=0   // variável de controle de status de ansiedade
+let dia = 9
+let mes = ["julho" , "agosto" , "setembro" , "outubro" , "novembro" , "dezembro"]
+let horas = 8 
+
+function passaDia(diaAtual, diaPerdido = 1){
+    diaAtual = diaAtual + diaPerdido;
+    return diaAtual; 
+} 
+function passaHora(horaAtual, tempoPassado = 1){
+    horaAtual = horaAtual + tempoPassado;
+    return horaAtual; 
+} 
+
+function perdeHora() {
+    console.clear();
+    ansiedade+10;
+    console.log('Uouu não!');
+    console.log(`São ${horas} horas, Você perdeu o horário da entrevista! ): `);
+    console.log();
+    console.log('UFFAA!! Você conseguiu remarcar para amanhã. (: ');
+    console.log();
+    horas = horas - 2;
+}
+
+function acordar() {
+    console.clear();
+    console.log('Você se levanta e abre a janela.. ');
+    console.log();
+    console.log('Vai lavar seu rosto e escovar os dentes... ');
+    console.log();
+    console.log('Toma seu remédio de ansiedade. ');
+    console.log();
+    prompt('PRESS ENTER ');
+}
+
+function cafe() {
+    console.clear();
+    console.log('Seu pai está preparando o jantar...')
+    console.log();
+    console.log('Pai: "Bom dia filho, o café da manhã já está na mesa." ');               
+    console.log();
+        do {
+            console.log('Pai: "Qual cereal você vai querer, sucrilhos ou nescau?" ');
+            var cafe = prompt().toLowerCase();                            
+        }while (cafe != "sucrilhos" && cafe != "nescau" );
+
+        horas = passaHora(horas, 1);
+        console.log();
+        console.log('Você terminou seu café da manhã.');
+        console.log();
+        prompt('PRESS ENTER ');
+    }
+
+function start() {
+prompt('PRESS ENTER ');
+console.clear();
+console.log("ATENÇÃO: ESSE JOGO PODE PARECER INFINITO! ");
+console.log();
+prompt('PRESS ENTER ');
+console.clear();
+console.log("SUAS DECISÕES PODE MUDAR COMPLETAMENTE O SEU FUTURO. ");
+console.log();
+prompt('PRESS ENTER ');
+console.clear();
+console.log("TEM CERTEZA QUE DESEJA CONTINUAR?" );
+console.log();
+prompt('PRESS ENTER TO CONTINUE ');
+console.clear();
+console.log('QUEM EU SOU???' );
+console.log();
+console.log('MEU NOME É STEFAN BUTLER. ');
+console.log();
+console.log('SOU UM JOVEM PROGRAMADOR. ');
+console.log();
+prompt('PRESS ENTER ');
+console.clear();
+console.log('ATUALMENTE ESTOU DESENVOLVENDO UM JOGO BASEADO NO LIVRO BANDERSNATCH. ') 
+console.log();
+console.log('O LIVRO FOI ESCRITO POR JEROME F. DAVIES. ')
+console.log();
+console.log('ELE ACREDITAVA QUE HAVIA UMA FORÇA OCULTA QUE O FAZIA MUDAR SEU DESTINO. ')
+console.log();
+console.log('QUE NOSSAS DECISÕES NÃO IMPORTAVA E SEMPRE PODERIAMOS RECOMEÇAR ')
+console.log();
+prompt('PRESS ENTER TO START ');
+}
+
+function inicioJogo() { 
+    do{  
+        console.clear();
+        console.log(`${dia} ${mes[0]} 1984 `);
+        console.log();
+        console.log(`DESPERTADOR TOCA: São ${horas} horas nivel de ansiedade ${ansiedade}!` ); 
+        console.log();
+        console.log('LEMBRETE: Hoje você terá uma entrevista na tuckersoft às 10h');
+        console.log(); 
+        do {
+        console.log('Deseja se levantar agora? (sim/nao) ');
+        var resposta1 = prompt().toLowerCase();                               
+        }while (resposta1 != "sim" && resposta1 != "nao");
+        
+        if (resposta1 == 'sim') {
+            acordar();
+            cafe();
+                do {
+                console.clear();
+                console.log(`São ${horas} horas, ir para o ponto de ônibus? (sim/nao) `);
+                var resposta2 = prompt().toLowerCase();                 
+                }while (resposta2 != "sim" && resposta2 != "nao");
+
+                if (resposta2 == 'nao') {   
+                    dia = passaDia(dia, 1);
+                    horas = passaHora(horas, 1);
+                    perdeHora();
+                    prompt('PRESS ENTER TO CONTINUE ');
+                continue;     
+                }
+        
+            }else if (resposta1 == 'nao') {   
+                dia = passaDia(dia, 1);
+                horas = passaHora(horas, 2);
+                perdeHora();
+                prompt('PRESS ENTER TO CONTINUE ');
+                i = 0
+            continue;
+            }
+            
+            if(resposta1 == 'sim'&& resposta2 =='sim'){
+                break;
+            }
+    
+    }while(true)
+}
+
+function musica() {
+    console.log();
+    do {
+    var escutarMusica = prompt('Você quer escutar música? (sim/nao) ').toLowerCase();
+    } while (escutarMusica != "sim" && escutarMusica != "nao");
+
+    if (escutarMusica == 'sim') {
+
+        let escolhaRitimo = ""
+        console.log();
+        console.log("Qual ritmo você quer escutar? (pop ou rock) ");
+        escolhaRitimo = prompt().toLowerCase();
+        console.log();
+
+    if (escolhaRitimo == 'rock') {
+        console.log('ROCK deixou você animado.'); 
+
+    } else if (escolhaRitimo == 'pop') {
+        console.log('POP deixou você mais tranquilo.'); 
+
+    }
+    }
+}
+
+// AQUI O JOGO COMEÇA A RODAR
+
+let propostaEmprego = 'sim'
+
+console.log(`
+⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠿⠿⢿⡿⣿⣿⣿⣿⠟⣻⣿⠟⣛⣛⡟⢻⠟⣻⣿⣿⠛⢿⠟⢻⡟⣿⠛⣛⠻⡟⢛⣛⢻⡟⣛⣛⢻⡟⢛⡛⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⢘⣋⠸⡇⢸⣿⣿⠃⠦⠹⡇⢾⣿⣿⡇⣠⡘⢿⣿⣿⢰⣄⣴⢸⡇⣿⢀⡉⢰⡇⢈⡉⢼⡀⢿⡿⢀⡇⢈⡉⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣬⣭⣴⣧⣬⣭⣯⣶⣿⣦⣷⣤⣭⣾⣦⣿⣦⣾⣿⣿⣾⣿⣿⣾⣷⣿⣾⣿⣾⣿⣾⣷⣾⣿⣶⣶⣿⣷⣿⣷⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+⡏⠉⠉⠀⠀⠀⠉⠙⡟⠉⠉⠉⠉⠉⠉⠙⡏⠁⠀⠙⠋⠀⠀⠉⢿⠀⠈⠉⠉⠉⠙⠛⢿⠟⠉⠉⠉⠉⢹⠉⠉⠉⠉⠉⠉⠙⢿⡟⠋⠀⠀⠀⠀⢸⡀⠀⠀⠉⠀⠀⠀⢹⡏⠁⠀⠀⠀⠀⠀⠙⡇⠀⠀⠀⠀⠀⠿⠁⠀⠀⠀⢸⠁⠀⠀⢸⡇⠀⠀⢸
+⡇⠀⠀⢠⣦⠀⠀⠀⡇⠀⠀⢀⣦⠀⠀⠀⡇⠀⠀⠀⣤⠀⠀⠀⢸⠀⠀⠀⣶⡄⠀⠀⢸⠀⠀⠀⢴⣶⣾⡄⠀⠀⣠⡀⠀⠀⢸⠀⠀⠀⢠⣤⣤⣾⠃⠀⠀⢠⡄⠀⠀⠀⡇⠀⠀⢠⡆⠀⠀⠀⣷⡆⠀⠀⠀⣶⡇⠀⠀⠀⣶⣾⠀⠀⠀⢸⡇⠀⠀⢸
+⡇⠀⠀⠀⠉⠀⠀⣠⡇⠀⠀⠘⣿⠀⠀⠀⣷⠀⠀⠀⣿⠀⠀⠀⢸⠀⠀⠀⣿⡇⠀⠀⢸⠀⠀⠀⠈⠉⠉⡇⠀⠀⠉⠁⠀⠀⣼⡀⠀⠀⠘⠛⠿⡇⠀⠀⠀⣿⠃⠀⠀⢸⡇⠀⠀⢸⡇⠀⠀⠀⣿⡇⠀⠀⠀⣿⡇⠀⠀⠀⣿⣿⠀⠀⠀⠈⠁⠀⠀⢸
+⡇⠀⠀⠀⣄⠀⠀⠙⡇⠀⠀⠀⠉⠀⠀⠀⣿⠀⠀⠀⣿⠀⠀⠀⢸⠀⠀⠀⣿⡇⠀⠀⢸⠀⠀⠀⢠⣤⣤⡇⠀⠀⢀⣄⠀⠀⠈⣿⣦⣤⡄⠀⠀⠿⠀⠀⠀⣿⠀⠀⠀⣿⠀⠀⠀⠈⠁⠀⠀⠀⣿⡇⠀⠀⠀⣿⡇⠀⠀⠀⣿⣿⠀⠀⠀⢠⡄⠀⠀⢸
+⡇⠀⠀⠀⠛⠀⠀⠀⡇⠀⠀⠀⣀⠀⠀⠀⣿⠀⠀⠀⣿⠀⠀⠀⢸⠀⠀⠀⠛⠁⠀⠀⢸⠀⠀⠀⠘⠛⠛⡇⠀⠀⢸⣿⠀⠀⠀⡿⠛⠛⠃⠀⠀⢠⡇⠀⠀⢩⡇⠀⠀⠻⡀⠀⠀⣀⠀⠀⠀⢰⣿⠇⠀⠀⠀⣿⡇⠀⠀⠀⠛⢻⠀⠀⠀⢸⡇⠀⠀⢸
+⣇⣀⣀⣀⣀⣀⣀⣠⣇⣀⣀⣠⣿⣀⣀⣀⣿⣀⣀⣀⣿⣀⣀⣀⣸⣀⣀⣀⣀⣀⣀⣠⣾⣧⣀⣀⣀⣀⣀⣇⣀⣀⣸⣿⣀⣀⣀⣧⣀⣀⣀⣀⣀⣼⣇⣀⣀⣸⣇⣀⣀⣸⣇⣀⣀⣸⣧⣀⣀⣚⣿⣄⡀⠀⣴⣿⣿⣄⣀⣀⣀⣸⣀⣀⣀⣸⣇⣀⣀⣸
+⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+`);
+    start();       // HISTÓRIA
+do {
+    for (let i = 0; i < 1000; i++) {   
+        inicioJogo();  // INICIO DO JOGO
+        console.clear();
+        console.log('Você conseguiu pegar o ônibus a tempo.')
+        musica();
+        // ENTREVISTA DE EMPREGO
+        console.log();
+        prompt('PRESS ENTER ');
+        console.clear();
+        console.log('Você chega a Tuckersoft e é recepcionado pelo dono Mohan Thakur.');
+        console.log();
+        console.log('Mohan te apresenta Colin Ritman (Famoso desenvolvedor de jogos da Tuckersoft).');
+        console.log();
+        prompt('PRESS ENTER ');
+        console.clear();
+    
+    if (i == 0) {
+                    console.log('Collin se apresenta e mostra seu novo jogo Nohzdyve, mas seu jogo quebra.');
+                    console.log();
+                    console.log('COLLIN: Deu erro de carregamento, pois a memória ficou sobrecarregada');
+    } else if (i > 0) {
+            do {
+                console.log('Já nos conhecemos antes? (sim/nao) '); 
+                var conheceColin = prompt().toLowerCase();                                
+                console.clear();
+                } while (conheceColin != "sim" && conheceColin != "nao");
+                console.log('Sim já nos conhecemos antes.')
+                console.log();
+                prompt('PRESS ENTER ');
+                console.clear();
+                console.log('Collin mostra seu novo jogo ');
+                console.log();
+                console.log('Advinho o nome do jogo: "Nohzdyve" ');
+                console.log();
+                console.log('O jogo quebra e eu advinho o erro... ');
+                console.log();
+                console.log('STEFAN: Erro de carregamento, a memória ficou sobrecarregada ');
+        }
+
+        console.log();
+        prompt('PRESS ENTER ');
+        console.clear();
+        console.log('Mostro o jogo que estou desenvolvendo "BANDERSNATCH". ');
+        console.log()
+        console.log('Falo que é baseado no livro escrito por JEROME F. DAVIES. ');
+        console.log();
+        console.log('Aonde apresento ao jogador varios caminhos e cada caminho muda o destino final do jogo. ');
+        console.log();
+        prompt('PRESS ENTER ');
+        console.clear();
+        console.log('Na apresentação o jogo chega a um caminho não programado, pois, é um jogo de vários caminhos. ');
+        console.log();
+        console.log('Mohan quer investir no meu jogo, ele me apresenta sua proposta. ');
+        console.log();
+        prompt('PRESS ENTER ');
+        console.clear();
+        console.log('PROPOSTA ');
+        console.log('Você vem trabalhar na TUCKERSOFT, montamos uma equipe selecionada ');
+        console.log('Para te ajudar a concluir o jogo para o lançamento ser no natal. ');
+
+        do {
+            console.log();
+            console.log('Aceitar a proposta? (sim/nao) ');
+            propostaEmprego = prompt().toLowerCase(); 
+            console.log();                                
+            } while (propostaEmprego != "sim" && propostaEmprego != "nao");
+            
+            if (propostaEmprego == 'sim') {
+                console.clear();
+                console.log('COLLIN: Desculpa cara, caminho errado! ): ');
+                console.log();
+                prompt('PRESS ENTER ');
+                console.clear();
+                console.log('5 MESES DEPOIS...');
+                console.log();
+                console.log('Chegou natal e seu jogo foi lançado.');
+                console.log();
+                console.log('PROGRAMA DE TV MICROPLAY: Faz analize dos jogos lançados no natal: ');
+                console.log()
+                console.log('O Crítico ROBIN avalia seu jogo: '); 
+                console.log();
+                console.log('O jogo sai muito curto, pareceu que foi feito de uma forma corrida, só para lucrar... ');
+                console.log();
+                console.log('Acho que o fato de ter sido feito em equipe levou a isso e não superou as expectativas... '); 
+                console.log();
+                console.log( 'NOTA 0 DE 5 ESTRELAS. ');
+                console.log();
+                prompt('PRESS ENTER ');
+                console.clear();
+                horas = 8;
+                dia = 9
+
+            } else if (propostaEmprego == 'nao') {
+                console.log('Aceito trabalhar na Tuckersoft, mas quero continuar a desenvolver esse jogo em casa. ');
+                console.log();
+                console.log('MOHAN: Tá certo, mas tem que está pronto em setembro para que esteja a venda no natal. ');
+                console.log();
+                console.log('Colin me chama para me dá dicas de músicas. ');
+                console.log();
+                prompt('PRESS ENTER ');
+                console.clear();
+                do{
+                    console.log('Ir para casa começar a programar ou ir no consultório da sua psicóloga? casa(1)/psicóloga(2) ');
+                    var escolha = +prompt().toLowerCase();
+                } while (escolha != 1 && escolha != 2);
+
+                if (escolha == 1) {  // Só tá indo pra cá
+
+                    console.log('Cheguei em casa, meu pai pergunta como foi a entrevista? ');
+                    console.log();
+                    console.log('Explico que vou trabalhar em casa, ele não se anima muito mas me dar os parabéns ');
+                    console.log();
+                    prompt('PRESS ENTER ');
+                    console.clear();
+                    console.log('5 MESES DEPOIS... ');
+                    console.log();
+                    console.log('Chegou natal e seu jogo foi lançado. ');
+                    console.log();
+                    console.log('PROGRAMA DE TV MICROPLAY: Faz analize dos jogos lançados no natal: ');
+                    console.log()
+                    console.log('O Crítico ROBIN avalia seu jogo: '); 
+                    console.log();
+                    console.log('O impressiona por ter vários caminhos, é um jogo desafiador... ');
+                    console.log();
+                    console.log('Porém ainda não me incomodou... '); 
+                    console.log();
+                    console.log( 'NOTA 4 DE 5 ESTRELAS. ');
+                    console.log();
+                    prompt('PRESS ENTER ');
+                    console.clear();
+                    horas = 8;
+                    dia = 9
+                    continue
+
+                } else if (escolha == 2){
+
+                console.log('Chego no consultório da Dra Haynes');
+                console.log();
+                console.log('Explico que fui fazer uma entrevista na Tuckersoft. ')
+                console.log();
+                console.log('Digo a ela que recusei trabalhar lá, mas que me deixaram trabalhar em casa. ');
+                console.log();
+                console.log('Ela Fica feliz por mim, eu digo que ela parece meu pai. ');
+                console.log();
+                console.log('Digo a ela que me sinto bem e não necessito ir mas ter consultas. ');
+                console.log();
+                console.log('Digo a ela que parece que estou sendo monitorado. ');
+                console.log();
+                console.log('Haynes: Acho que você se sente assim porquê o aniversário da sua mãe tá chegando. ');
+                console.log();
+                console.log('Haynes: Você quer falar sobre o que aconteceu? ');
+                console.log();
+                console.log('STEFAN: Foi tudo culpa do coelho que minha mãe me deu. ');
+                console.log();
+                console.log('NAQUELA NOITE ');
+                console.log('Meus pais brigaram por causa dele e meu pai, meu pai então o escondeu. ');
+                console.log()
+                do {
+                console.log('Procurar onde seu pai escondeu o coelho? (sim/nao) ');
+                console.log();
+                procurarCoelho = prompt().toLowerCase();
+                } while (procurarCoelho != "sim" && procurarCoelho != "nao");
+
+                if (procurarCoelho == 'sim') {
+                    prompt();
+                    console.clear();
+                    console.log('Achei o coelho e coloquei ele de baixo da cama. ');
+                    console.log();
+                    console.log('NA MANHÃ SEGUINTE');
+                    console.log();
+                    console.log('Você iria visitar sua vó mas sua mãe, fui procurar o coelho, e demorei a encontrar. ');
+                    console.log();
+                    console.log('Você e sua mãe acabou se atrasando e pegando o próximo trem, que ficou desgovernado e matou todos os passageiros. ');
+                    console.log();
+                    prompt('GAME OVER.');
+                    horas = 8;
+                    dia = 9
+                continue
+                }
+
+                else if (procurarCoelho == 'nao') {
+                    prompt();
+                    console.clear();
+                    console.log('NA MANHÃ SEGUINTE');
+                    console.log();
+                    console.log('Você iria visitar sua vó mas sua mãe, porém você não quiz ir, pois, não achava o coelho. ');
+                    console.log();
+                    console.log('Sua mãe acabou se atrasando e pegando o próximo trem, que ficou desgovernado e matou todos os passageiros. ');
+                    console.log();  
+                    console.log('Você culpa seu pai por tudo. ');
+                }
+
+                console.log();
+                prompt('PRESS ENTER ');
+                console.clear();
+                console.log('Depois da consulta fui a uma loja de disco de vinil para comprar um novo album.'); 
+                console.log();
+                console.log('Qual album comprar Djavan ou Agepê? ');
+                prompt();
+                console.log();
+                prompt('PRESS ENTER ');
+                console.clear();
+                console.log('3 DE AGOSTO') // Falta Ciclo
+                console.log();
+                console.log('O Prazo começa a ficar próxima e o jogo ainda apresenta alguns bugs... ');
+                console.log();
+                console.log('Seu pai entra no seu quarto: ');
+                console.log();
+                console.log('PAI: Trouxe seu chá... estou indo almoçar fora você quer ir ');
+                console.log()
+                console.log('PAI: Você não sai mas desse quarto, estou preocupado com você, fala comigo ')
+                console.log();
+                console.log('Você está super estressado e precisa se livrar do estresse, o que você vai fazer??? ');
+                console.log()
+                do{
+                    console.log('Jogar o chá quente no seu computador?(1) Gritar com seu pai?(2) ');
+                    var estresse = +prompt().toLowerCase();
+                } while (estresse != 1 && estresse != 2);
+
+                if (estresse == 1) {
+
+                    console.clear();
+                    console.log('Uouu não!');
+                    console.log(`Você perdeu todo seu trabalho! ): `);
+                    console.log();
+                    console.log('GAME OVER')
+                    console.log();
+                    prompt('PRESS ENTER ');
+                    console.clear();
+                    do {
+                    console.log('Deseja Jogar Novamente? (sim/nao)')
+                    var jogar = prompt() 
+                    } while (jogar != 'sim' && jogar != 'nao');
+                    if (jogar == 'sim') {
+                        horas = 8;
+                        dia = 9
+                    continue
+                    } else if (jogar == 'nao') {
+                    break 
+                    }    
+              
+                }else if (estresse == 2) {
+                    console.log();
+                    console.log('PAI: Pegue o casaco, você vai comigo.');
+                    console.log();
+                    console.log('Você pega no sono, seu pai te acorda, ele te levou pro consultório da Dra Haynes. ');
+                    console.log();
+                    console.log('Você vê o Colin andando na rua do consultório.');
+                    console.log();
+                    do{
+                        console.log('Sair atrás do Colin (1)? ou entrar no consultório (2)? ');
+                        var correrAtras = +prompt().toLowerCase();
+                    } while (correrAtras != 1 && correrAtras != 2);
+
+                    if (correrAtras == 1) {
+                        console.log();
+                        console.log('Collin me leva pro seu apartamento, começamos a beber e tomamos LSD. ');
+                        console.log();
+                        console.log('COLIN: O tempo não existe e nossas escolhas não importam pois sempre podemos voltar e mudar nossos destinos.')
+                        console.log();
+                        console.log('Ele me chama para varanda do seu apartamento e diz que um de nós irá pular para provar isso, escolha quem...');
+                        console.log()
+                        do{
+                            console.log('Você Pula (1)? Collin Pula (2)? ');
+                            var pularAp = +prompt().toLowerCase();
+                        } while (pularAp != 1 && pularAp != 2);
+
+                        if (pularAp == 1) {
+
+                            prompt('PRESS ENTER ')
+                            console.clear();
+                            console.log('4 MESES DEPOIS... ');
+                            console.log();
+                            console.log('Chegou natal e seu jogo foi lançado sem você. ');
+                            console.log();
+                            console.log('PROGRAMA DE TV MICROPLAY: Faz analize dos jogos lançados no natal: ');
+                            console.log()
+                            console.log('O Crítico ROBIN avalia seu jogo: '); 
+                            console.log();
+                            console.log('É dificil falar sobre o jogo pelo trágico acidente que houve com o autor... ');
+                            console.log();
+                            console.log('O jogo foi terminado por outra pessoa que deixou o jogo muito adulto e macrabro... '); 
+                            console.log();
+                            console.log( 'NOTA 0 DE 5 ESTRELAS. ');
+                            console.log();
+                            prompt('PRESS ENTER ');
+                            horas = 8;
+                            dia = 9
+                            continue
+                            
+                        } else if (pularAp == 2) {
+
+                            console.clear();
+                            console.log('Você conseguiu concluir seu jogo, quase saiu perfeito' );
+                            console.log();
+                            prompt('PRESS ENTER ');
+                            console.clear();
+                            console.log('5 MESES DEPOIS... ');
+                            console.log();
+                            console.log('Chegou natal e seu jogo foi lançado. ');
+                            console.log();
+                            console.log('PROGRAMA DE TV MICROPLAY: Faz analize dos jogos lançados no natal: ');
+                            console.log()
+                            console.log('O Crítico ROBIN avalia seu jogo: '); 
+                            console.log();
+                            console.log('O impressiona por ter vários caminhos, é um jogo desafiador, vale muito a pena jogar. ');
+                            console.log();
+                            console.log( 'NOTA MÁXIMA 4 DE 5 ESTRELAS. ');
+                            console.log();
+                            prompt('PRESS ENTER ');
+                            console.clear();
+                            console.log('Deseja Jogar Novamente?')
+                            var jogar2 = prompt() 
+                                if (jogar2 == 'sim') {
+                                    horas = 8;
+                                    dia = 9
+                                continue
+                                } else if (jogar == 'nao') {
+                                break 
+                                }  
+                            
+                        } 
+                        
+                    } else if (correrAtras == 2) {
+                        console.log();
+                        console.log('Entro no consultório da Dra Haynes');
+                        console.log();
+                        console.log('Durante a conversa reforço que exite alguém me controlando e tomando as decisões por mim. ');
+                        console.log();
+                        console.log('Ela sente a necessidade de aumentar a dosagem do meu remédio de ansiedade. ');
+                        console.log();
+                        console.log('Volto para casa.');
+                        console.log();
+                        prompt('PRESS ENTER');
+                        if(ansiedade>=30){     
+                            comprimido=1
+                            console.log("Meu nível de ansiedade aumentou muito e tomei o comprimido sem pensar duas vezes.")
+                        }else if(ansiedade<30){
+                        console.log('Na hora de tomar me pergunto se devo tomar...')
+                        console.log();
+                        console.log('Tomar comprimido (1)? Jogar no sanitário (2)? ')
+                        do{
+                        var comprimido = +prompt().toLowerCase();
+                        } while (comprimido != 1 && comprimido != 2);
+                        }
+                        if (comprimido == 1){
+                        prompt('PRESS ENTER ')
+                            console.clear();
+                            console.log('4 MESES DEPOIS... ');
+                            console.log();
+                            console.log('Chegou natal e seu jogo foi lançado sem você. ');
+                            console.log();
+                            console.log('PROGRAMA DE TV MICROPLAY: Faz analize dos jogos lançados no natal: ');
+                            console.log()
+                            console.log('O Crítico ROBIN avalia seu jogo: '); 
+                            console.log();
+                            console.log('O jogo é interessante mas o que parece é que o autor parou na metade... ');
+                            console.log();
+                            console.log('E simplesmente continuou o jogo no piloto automatico... '); 
+                            console.log();
+                            console.log( 'NOTA 2.5 DE 5 ESTRELAS. ');
+                            horas = 8;
+                            dia = 9
+                            continue
+
+                        } else if (comprimido == 2){
+
+                            console.log('O prazo começa a ficar perto e o jogo ainda apresenta vários bangs. ');
+                            console.log();
+                            console.log('Seu estresse começa aumentar... ');
+                            console.log();
+                            console.log('Quebrar computador (1)? Escultar o album que você comprou (2)? ')
+                            do{
+                            var decid = +prompt().toLowerCase();
+                            } while (decid != 1 && decid != 2);
+
+                            if (decid == 1){
+                                console.clear();
+                                console.log('Uouu não!');
+                                console.log(`Você perdeu todo seu trabalho! ): `);
+                                console.log();
+                                console.log('GAME OVER' );
+                                console.log();
+                                prompt('PRESS ENTER ');
+                                console.clear();
+                                console.log('Deseja Jogar Novamente?')
+                                var jogar1 = prompt() 
+                                    if (jogar1 == 'sim') {
+                                        horas = 8;
+                                        dia = 9
+                                    continue
+                                    } else if (jogar == 'nao') {
+                                    break 
+                                    }                          
+
+                    } else if (decid == 2){
+                        console.clear();
+                        console.log('Você conseguiu concluir seu jogo com excelência e perfeição no prazo combinado' );
+                        console.log();
+                        prompt('PRESS ENTER ');
+                        console.clear();
+                        console.log('5 MESES DEPOIS... ');
+                        console.log();
+                        console.log('Chegou natal e seu jogo foi lançado. ');
+                        console.log();
+                        console.log('PROGRAMA DE TV MICROPLAY: Faz analize dos jogos lançados no natal: ');
+                        console.log()
+                        console.log('O Crítico ROBIN avalia seu jogo: '); 
+                        console.log();
+                        console.log('O impressiona por ter vários caminhos, é um jogo desafiador, vale muito a pena jogar. ');
+                        console.log();
+                        console.log( 'NOTA MÁXIMA 5 DE 5 ESTRELAS. ');
+                        console.log();
+                        prompt('PRESS ENTER ');
+                        console.clear();
+                        console.log('Deseja Jogar Novamente?')
+                            var jogar2 = prompt() 
+                                if (jogar2 == 'sim') {
+                                    horas = 8;
+                                    dia = 9
+                                continue
+                                } else if (jogar == 'nao') {
+                                break 
+                                }     
+                    }
+                        }      
+                }
+            }
+        }
+    }
+}
+} while (propostaEmprego == 'sim' );
