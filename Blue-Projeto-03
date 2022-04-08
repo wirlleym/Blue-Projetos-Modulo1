@@ -1,7 +1,7 @@
 console.clear();
 const prompt = require('prompt-sync')();
 
-let ansiedade=0   // variável de controle de status de ansiedade
+let ansiedade=50   // variável de controle de status de ansiedade
 let dia = 9
 let mes = ["julho" , "agosto" , "setembro" , "outubro" , "novembro" , "dezembro"]
 let horas = 8 
@@ -17,7 +17,7 @@ function passaHora(horaAtual, tempoPassado = 1){
 
 function perdeHora() {
     console.clear();
-    ansiedade+10;
+    ansiedade += 10;
     console.log('Uouu não!');
     console.log(`São ${horas} horas, Você perdeu o horário da entrevista! ): `);
     console.log();
@@ -26,13 +26,30 @@ function perdeHora() {
     horas = horas - 2;
 }
 
+function controlAnsiedade(){
+    if(ansiedade>=50){     
+        console.log("Meu nível de ansiedade está alto.");
+        console.log();
+        console.log('Tomar comprimido (1)? Jogar no sanitário (2)? ')
+        do{
+        var comprimido = +prompt().toLowerCase();
+            if(comprimido == 1){
+                ansiedade -=20
+                console.log();
+                console.log(`Sua ansiedade diminuiu para ${ansiedade} `);
+            }
+
+        } while (comprimido != 1 && comprimido != 2);
+        }
+    }
+
 function acordar() {
     console.clear();
     console.log('Você se levanta e abre a janela.. ');
     console.log();
     console.log('Vai lavar seu rosto e escovar os dentes... ');
     console.log();
-    console.log('Toma seu remédio de ansiedade. ');
+    controlAnsiedade();
     console.log();
     prompt('PRESS ENTER ');
 }
@@ -93,10 +110,11 @@ function inicioJogo() {
     do{  
         console.clear();
         console.log(`${dia} ${mes[0]} 1984 `);
+        console.log(`Nivel de ansiedade =  "${ansiedade}" `);
         console.log();
-        console.log(`DESPERTADOR TOCA: São ${horas} horas nivel de ansiedade ${ansiedade}!` ); 
+        console.log(`DESPERTADOR TOCA: São ${horas} horas! `); 
         console.log();
-        console.log('LEMBRETE: Hoje você terá uma entrevista na tuckersoft às 10h');
+        console.log('LEMBRETE: Hoje você terá uma entrevista na tuckersoft às 10h ');
         console.log(); 
         do {
         console.log('Deseja se levantar agora? (sim/nao) ');
@@ -115,6 +133,8 @@ function inicioJogo() {
                 if (resposta2 == 'nao') {   
                     dia = passaDia(dia, 1);
                     horas = passaHora(horas, 1);
+                    ansiedade += 10;
+                    prompt();
                     perdeHora();
                     prompt('PRESS ENTER TO CONTINUE ');
                 continue;     
@@ -123,6 +143,9 @@ function inicioJogo() {
             }else if (resposta1 == 'nao') {   
                 dia = passaDia(dia, 1);
                 horas = passaHora(horas, 2);
+                ansiedade += 10;
+                console.log('Você pegou no sono... ');
+                console.log();
                 perdeHora();
                 prompt('PRESS ENTER TO CONTINUE ');
                 i = 0
@@ -143,13 +166,13 @@ function musica() {
     } while (escutarMusica != "sim" && escutarMusica != "nao");
 
     if (escutarMusica == 'sim') {
-
+        ansiedade -= 10;
         let escolhaRitimo = ""
         console.log();
         console.log("Qual ritmo você quer escutar? (pop ou rock) ");
         escolhaRitimo = prompt().toLowerCase();
         console.log();
-
+        
     if (escolhaRitimo == 'rock') {
         console.log('ROCK deixou você animado.'); 
 
@@ -157,6 +180,8 @@ function musica() {
         console.log('POP deixou você mais tranquilo.'); 
 
     }
+        console.log();
+        console.log(`Sua ansiedade diminuiu para ${ansiedade} `);
     }
 }
 
@@ -298,7 +323,7 @@ do {
                     var escolha = +prompt().toLowerCase();
                 } while (escolha != 1 && escolha != 2);
 
-                if (escolha == 1) {  // Só tá indo pra cá
+                if (escolha == 1) {  
 
                     console.log('Cheguei em casa, meu pai pergunta como foi a entrevista? ');
                     console.log();
@@ -327,7 +352,7 @@ do {
                     continue
 
                 } else if (escolha == 2){
-
+                console.clear();
                 console.log('Chego no consultório da Dra Haynes');
                 console.log();
                 console.log('Explico que fui fazer uma entrevista na Tuckersoft. ')
@@ -394,8 +419,7 @@ do {
                 console.log();
                 prompt('PRESS ENTER ');
                 console.clear();
-                console.log('3 DE AGOSTO') // Falta Ciclo
-                console.log();
+                console.log('3 DE AGOSTO') 
                 console.log('O Prazo começa a ficar próxima e o jogo ainda apresenta alguns bugs... ');
                 console.log();
                 console.log('Seu pai entra no seu quarto: ');
@@ -412,7 +436,7 @@ do {
                 } while (estresse != 1 && estresse != 2);
 
                 if (estresse == 1) {
-
+                    ansiedade += 10;
                     console.clear();
                     console.log('Uouu não!');
                     console.log(`Você perdeu todo seu trabalho! ): `);
@@ -525,18 +549,9 @@ do {
                         console.log();
                         console.log('Volto para casa.');
                         console.log();
-                        prompt('PRESS ENTER');
-                        if(ansiedade>=30){     
-                            comprimido=1
-                            console.log("Meu nível de ansiedade aumentou muito e tomei o comprimido sem pensar duas vezes.")
-                        }else if(ansiedade<30){
-                        console.log('Na hora de tomar me pergunto se devo tomar...')
-                        console.log();
-                        console.log('Tomar comprimido (1)? Jogar no sanitário (2)? ')
-                        do{
-                        var comprimido = +prompt().toLowerCase();
-                        } while (comprimido != 1 && comprimido != 2);
-                        }
+                        prompt('PRESS ENTER');   
+                        console.clear();                   
+                        controlAnsiedade();
                         if (comprimido == 1){
                         prompt('PRESS ENTER ')
                             console.clear();
